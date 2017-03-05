@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务二：零基础HTML及CSS编码（一）</title>
+<link rel="stylesheet" type="text/css" href=".\task-2.css" >
+</head>
+<body>
+	<header class='header'>
+		<img class='logo' src="..\images\image\1.jpg" alt="">
+		<nav class='nav'>
+			<ul>
+			<li class='nav_li'><a href="#">链接1</a></li>
+			<li class='nav_li'><a href="#">链接2</a></li>
+			<li class='nav_li'><a href="#">链接3</a></li>
+			<li class='nav_li'><a href="#">链接4</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main class='main'>
+		<article class="artcle">
+			<h3>文章一级标题</h3>
+			<h4>文章二级标题</h4>
+			<span class='author'>作者:某某某</span><time datetime='2017-02-27'>2017.02.27</time>
+			<p>四川，简称“川”或“蜀”，省会成都，位于中国大陆西南腹地，北连陕西、甘肃、青海，南接云南、贵州，东邻重庆，西衔西藏，四川地貌复杂，以山地为主要特色，具有山地、丘陵、平原和高原4种地貌类型，是国宝大熊猫的故乡。</p>
+			<p>四川是中国第三批<a href="#">自由贸易试验区</a> 、中国西部综合交通枢纽、中国西部经济发展高地，经济总量连续多年位居西部第一 。</p>
+			<p>四川是中国重要的经济、工业、农业、军事、旅游、文化大省。省会成都在1993年被国务院确定为中国西南地区的科技、商贸、金融中心和交通、通信枢纽 。<a href="#">成都双流国际机场</a>是中国第四大航空港 。中国人民解放军五大战区之一的西部战区机关驻四川省成都市 。四川省共辖1个副省级市、17个地级市、3个自治州，其中包括52个市辖区、16个县级市、111个县、4个自治县。截至2015年底，四川户籍人口9132.6万人，常住人口8204万人  。四川拥有已探明储量的矿产资源132种，占全国资源种数的70%，为全国的资源、能源大省。四川油气田已探明天然气储量超过3.8万亿立方米，位居全国第一，是川气东送的起点  。因物产丰富，资源富集而被誉为“天府之国”。</p>
+
+		</article>
+		<article class="artcle">
+			<h3>文章一级标题</h3>
+			<h4>文章二级标题</h4>
+			<span class='author'>作者:某某某</span><time datetime='2017-02-27'>2017.02.27</time>
+			<p>四川，简称“川”或“蜀”，省会成都，位于中国大陆西南腹地，北连陕西、甘肃、青海，南接云南、贵州，东邻重庆，西衔西藏，四川地貌复杂，以山地为主要特色，具有山地、丘陵、平原和高原4种地貌类型，是国宝大熊猫的故乡。</p>
+			<p>四川是中国第三批<a href="#">自由贸易试验区</a> 、中国西部综合交通枢纽、中国西部经济发展高地，经济总量连续多年位居西部第一 。</p>
+		</article>
+		<div class="pics">
+			<img src="..\images\image\1.jpg" alt="" class="main_pics">
+				<img src="..\images\image\2.jpg" alt="" class="main_pics">
+				<img src="..\images\image\3.jpg" alt="" class="main_pics">
+				<img src="..\images\image\4.jpg" alt="" class="main_pics">
+				<img src="..\images\image\5.jpg" alt="" class="main_pics">
+				<img src="..\images\image\6.jpg" alt="" class="main_pics">
+				<img src="..\images\image\7.jpg" alt="" class="main_pics">
+				<img src="..\images\image\8.jpg" alt="" class="main_pics">
+				<img src="..\images\image\1.jpg" alt="" class="main_pics">
+				<img src="..\images\image\2.jpg" alt="" class="main_pics">	
+		</div>
+		<article class="artcle">
+			<h3>文章一级标题</h3>
+			<h4>文章二级标题</h4>
+			<span class='author'>作者:某某某</span><time datetime='2017-02-27'>2017.02.27</time>
+			<p>四川，简称“川”或“蜀”，省会成都，位于中国大陆西南腹地，北连陕西、甘肃、青海，南接云南、贵州，东邻重庆，西衔西藏，四川地貌复杂，以山地为主要特色，具有山地、丘陵、平原和高原4种地貌类型，是国宝大熊猫的故乡。</p>
+			<p>四川是中国第三批<a href="#">自由贸易试验区</a> 、中国西部综合交通枢纽、中国西部经济发展高地，经济总量连续多年位居西部第一 。</p>
+		</article>
+		<article class="artcle">
+			<h3>文章一级标题</h3>
+			<h4>文章二级标题</h4>
+			<span class='author'>作者:某某某</span>
+			<time datetime='2017-02-27'>2017.02.27</time>
+			<ol class="books">
+				<li class="artcle_books"><a href="#">排名1</a></li>
+				<li class="artcle_books"><a href="#">排名2</a></li>
+				<li class="artcle_books"><a href="#">排名3</a></li>
+				<li class="artcle_books"><a href="#">排名4</a></li>
+			</ol>
+			<table class='artcle_table' border='1'>
+				<thead >
+					<th>表头</th>
+					<th>表头</th>
+					<th>表头</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>表内容单元</td>
+						<td>表内容单元</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表内容单元</td>
+						<td>表内容单元</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表内容单元</td>
+						<td>表内容单元</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+					<tr>
+						<td>表内容单元</td>
+						<td>表内容单元</td>
+						<td><a href="#">操作</a></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>总计</td>
+						<td colspan='2'>1000</td>		
+					</tr>
+				</tfoot>
+			</table>
+		</article>
+			<aside>
+		<h3>欢迎注册个人信息</h3>
+		<form action="" method="POST" class>
+			<table class='form_table'>
+				<tr>
+					<td class='form_left'>请输入邮箱地址</td>
+					<td class='form_right'>
+						<input type="text" name='e-mail' id='email'>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class='form_right form_prompt'>邮箱地址请按照要求格式输入</td>
+				</tr>
+				<tr>
+					<td class='form_left'>请输入密码</td>
+					<td class='form_right'>
+						<input type="password" name='psw1' id='psw1'></td>
+				</tr>
+				<tr>
+					<td class='form_left'>请重复输入密码</td>
+					<td class='form_right'>
+						<input type="password" name='psw2' id='psw2'></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class='form_right form_prompt'>密码请为6-16为英文数字</td>
+				</tr>
+				<tr>
+					<td class='form_left'>性别</td>
+					<td class='form_right'>
+						<input type="radio" name='sex' value='男' id='male'><label for="男">男</label>
+						<input type="radio" name='sex' value='女' id='female'><label for="女">女</label>
+					</td>
+				</tr>
+				<tr>
+					<td class='form_left'>城市</td>
+					<td class='form_right'>
+						<select name="city" id="city">
+						<option value="北京">北京</option>
+						<option value="北京">上海</option>
+						<option value="北京">广州</option>
+						<option value="北京">香港</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class='form_left'>爱好</td>
+					<td class='form_right'>
+						<input type="checkbox" name='hobby' value='运动'>
+						<label for="运动">运动</label>
+						<input type="checkbox" name='hobby' value='艺术'>
+						<label for="艺术">艺术</label>
+						<input type="checkbox" name='hobby' value='科学'>
+						<label for="科学">科学</label>
+					</td>
+				</tr>
+				<tr>
+					<td class='form_left form_des'>个人描述</td>
+					<td class='form_right'>
+						<textarea name="personDes" id="pers" cols="30" rows="10" placeholder='这是一个多行输入框，输入您的个人描述' resize='none'></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class='form_sub' colspan='2'>
+					<input type="submit" value='提交' id='form_submit'>
+					</td>
+				</tr>
+			</table>
+			
+		</form>
+	</aside>
+	</main>
+
+	<footer class='footer'>
+		版权所有&reg;
+	</footer>
+</body>
+</html>
