@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>Checkbox全选、取消选择、反选</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+window.onload=function(){
+	var oAll=document.querySelector('#all'),
+		oCan=document.querySelector('#canc'),
+		oOpp=document.querySelector('#opp'),
+		aInput=document.querySelectorAll('input');
+
+		oAll.onclick=function(){
+			for(let i=0;i<aInput.length;i++){
+				aInput[i].checked=true;
+			}
+		}
+
+		oCan.onclick=function(){
+			for(let i=0;i<aInput.length;i++){
+				aInput[i].checked=false;
+			}
+		}
+
+		oOpp.onclick=function(){
+			for(let i=0;i<aInput.length;i++){
+				aInput[i].checked=!aInput[i].checked;
+			}
+		}
+}
+</script>
+</head>
+    <body>
+    	<h3>Checkbox全选、取消选择、反选</h3>
+    	<button id='all'>全选</button>
+    	<button id='canc'>取消全选</button>
+    	<button id='opp'>反选</button><br />
+    	<input type="checkbox" value='basket' name='hobby'/>篮球<br />
+    	<input type="checkbox" value='foot' name='hobby'/>足球<br />
+    	<input type="checkbox" value='ppang' name='hobby'/>乒乓球<br />
+    	<input type="checkbox" value='volly' name='hobby'/>排球<br />
+    	<input type="checkbox" value='water' name='hobby'/>水球<br />
+    </body>
+</html>

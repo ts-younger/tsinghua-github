@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>表单元素(单选复选)的确认</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+window.onload=function(){
+	var aInput=document.querySelectorAll('input');
+	for(let i=0;i<2;i++){
+		aInput[i].onclick=function(){
+			if(this.checked) alert(this.value);
+		}
+	}
+	
+	for(let i=2;i<aInput.length;i++){
+		aInput[i].onclick=function(){
+			var count=0;
+			for(let j=2;j<aInput.length;j++){
+				if(aInput[j].checked){
+					count++;
+				}
+			}//增加计数查看复选框勾选数量
+			if(count>3){
+				this.checked=false;
+			};
+		}
+	}
+	
+	//复选框最少选择一个选项
+	cBoxSubmit=function(){
+		var count=0;
+		for(let i=2;i<aInput.length-1;i++){
+			if(aInput[i].checked) count++;
+			//alert(count)
+			if(count==0 || count>3){
+				alert('请选择正确个数');
+				return false;
+			}
+		}
+	}
+	aInput[aInput.length-1].onclick=function(){
+		cBoxSubmit();
+	}
+	
+
+}
+</script>
+</head>
+    <body>
+    	<h3>表单元素的确认</h3>
+    	<input type="radio" name='sex' id='sexm' value='男' check='checked' />男<br />
+    	<input type="radio" name='sex' id='sexf' value='女' />女<br />
+	<input type="checkbox" name='hobby' value='basketball' />篮球<br />
+	<input type="checkbox" name='hobby' value='football' />足球<br />
+	<input type="checkbox" name='hobby' value='pingpangball' />乒乓球<br />
+	<input type="checkbox" name='hobby' value='vollyball' />排球<br />
+	<input type="button" value='提交'  />
+    </body>
+</html>

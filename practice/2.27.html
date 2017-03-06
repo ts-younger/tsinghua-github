@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>下拉框联动效果</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+window.onload=function(){
+	var place={'四川':['成都','遂宁','绵阳'],'湖北':['武汉','宜昌','襄阳','十堰'],'湖南':['长沙','株洲','岳阳','湘潭'],'河北':['石家庄','保定','唐山']};
+	var oSePr=document.querySelector('#prov'),
+	oSeCi=document.querySelector('#city');
+
+	for(let pro in place){
+		var oOption=document.createElement('option');
+		oOption.value=pro;
+		oOption.innerText=pro;
+		oSePr.appendChild(oOption);
+	}
+	oSePr.onchange=function(){
+		var prov=oSePr.value;
+		oSeCi.innerHTML='';
+		for(pro in place){
+			if(pro==prov){
+				for(let i=0;i<place[pro].length;i++){
+					var oOption=document.createElement('option');
+					oOption.value=place[pro][i];
+					oOption.innerText=place[pro][i];
+					oSeCi.appendChild(oOption);
+				}
+			}
+		}
+		
+	}
+
+}
+</script>
+</head>
+    <body>
+    	<h3>下拉框联动效果</h3>
+    	<select name="pr" id="prov">
+    		
+    	</select>省<br />
+    	<select name="ci" id="city">
+    		
+    	</select>市<br />
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>正则验证</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<style>
+.dataw{color:red;}
+.datar{color:green;}
+</style>
+<script>
+window.onload=function(){
+	var aInput=document.querySelectorAll('input');
+	var aSpan=document.querySelectorAll('span');
+	var reuser=/^[a-zA-Z\4e00-\u9fa5]{4,10}$/;
+	var retelp=/^1[\d]{10}$/;
+	var reemail=/^\w+\@\w+\.?([a-zA-Z]{0,6})\.([a-z]{2,6})$/;
+	var refl=/^([1-9]\d*|0)\.\d*[1-9]\d*|0?\.0+|0$/;
+	var dataW=[];
+	var j=0;
+	var dataR=aInput[0].getAttribute('data-r');
+	//g全局匹配最好不与^$混用会造成test的一些问题
+//不要把字符串原文直接作为参数引用会出bug,保存为变量使用
+	//alert(refl.test(str)) 聚焦(显示输入)  失去焦点(隐藏)  keyup
+	var pattern={user:reuser,telp:retelp,email:reemail,fl:refl}
+	
+	//查询当前对象的序号
+	getIndex=function(arr,obj){
+		for(j;j<arr.length;j++){
+			//alert(obj.nodeType)
+			if(arr[j].getAttribute('id')==obj.getAttribute('id')){
+				return j;
+			}
+		}
+	}
+
+	//输入验证
+	reg=function(obj){
+		for(key in pattern){
+			if(obj.getAttribute('id')==key){
+				if(!pattern[key].test(obj.value)){
+					aSpan[j].innerHTML=dataW[j];
+					aSpan[j].setAttribute('class','dataw');
+				}else{
+					aSpan[j].innerHTML=dataR;
+					aSpan[j].setAttribute('class','datar');
+				}
+			}
+		}	
+	}
+
+
+	for(let i=0;i<aInput.length;i++){
+		dataW.push(aInput[i].getAttribute('data-w'));
+		aInput[i].onkeyup=function(){
+			getIndex(aInput,this);
+			reg(this);
+		}
+	}
+}
+</script>
+</head>
+    <body>
+    	<h3>常用的正则表达式验证</h3>
+	<input type="text" id='user' placeholder='姓名验证' data-w='请输入正确的姓名格式' data-r='通过验证' /><span class='con'></span><br />
+	<input type="text" id='telp' placeholder='电话验证' data-w='请输入正确的电话格式' data-r='通过验证'  /><span class='con'></span><br />
+	<input type="text" id='email' placeholder='邮箱验证' data-w='请输入正确的邮箱格式' data-r='通过验证'  /><span class='con'></span><br />
+	<input type="text" id='fl' placeholder='小数验证' data-w='请输入正确的小数格式' data-r='通过验证'  /><span class='con'></span><br />
+    </body>
+</html>

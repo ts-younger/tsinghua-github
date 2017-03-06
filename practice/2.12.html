@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>实时显示密码强度（区分大小写和数字）</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+window.onload=function(){
+	var oInput=document.querySelector('#psw');
+	var oSpan=document.querySelectorAll('.pswStr')[0];
+
+	setClass=function(obj,cssJson){
+		if(!obj || obj.nodeType==3 || obj.nodeType==8 || !obj.style){
+			return ;
+		}
+		for(attr in cssJson){
+			obj.style[attr]=cssJson[attr];
+		}
+	}
+
+	charType=function(obj){
+		//笨办法用新建json将检测到的输入类型存入,通过json元素的个数来判定密码强度
+		var keyType={};
+		var typeLength=0;
+		for(let i=0;i<obj.value.length;i++){
+			if(/[a-z]/.test(obj.value.charAt(i))){
+				keyType['charTypeLower']=1;
+				//alert('word');
+			}else if(/[A-Z]/.test(obj.value.charAt(i))){
+				keyType['charTypeUpper']=1;
+			}else if(/[0-9]/.test(obj.value.charAt(i))){
+				keyType['charTypeNumber']=1;
+			}else{
+				alert('请勿输入非法字符');
+				obj.value='';
+			}
+		}
+		for(key in keyType){
+			typeLength++;
+		}
+		//alert(typeLength);
+		return typeLength;
+	}
+
+	pswType=function(obj){
+		var that=obj; //将obj作为变量保存
+		if(obj.value.length>14){
+			maxLength(that);
+			return;
+		}//先对密码输入长度进行判定若符合要求在进行下一步操作
+
+		var strong=['弱','中','强'];
+		var color=['red','pink','green'];
+		var len=charType(that);
+		var i=null;
+		if(len==1){
+			i=0;
+		}else if(len==2){
+			i=1;
+		}else if(len==3){
+			i=2;
+		}else{
+			return;
+		}
+
+		setClass(oSpan,{'color':color[i],'margin-left':'5px'});
+		oSpan.innerHTML='密码强度:'+strong[i];
+	}
+
+	//密码输入长度超出规定的长度后执行操作
+	maxLength=function(obj){
+		var that=obj;
+		
+		obj.value=obj.value.substring(0,14);
+		obj.blur();
+		oSpan.innerHTML='密码已超过上限';;
+		setTimeout(function(){
+			pswType(that)
+		},5000)	
+	}
+
+	oInput.onblur=oInput.onkeydown=oInput.onkeyup=function(){
+		pswType(this);
+	}
+}
+</script>
+</head>
+    <body>
+    	<h3>实时显示密码强度</h3>
+    	密码：<input type="text" id='psw' name='pwd' /><span class='pswStr'></span>
+    </body>
+</html>

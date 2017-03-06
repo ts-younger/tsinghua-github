@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>字符串长度区分中英文</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+
+window.onload=function(){
+	var oInput=document.querySelector('input');
+	limitLength=function(obj){
+		var dataLength=parseInt(obj.getAttribute('datalength'));
+		var cl=0;
+		var i=0;
+		for(i;i<obj.value.length;i++){
+			if(/[\u4e00-\u9fa5]/.test(obj.value)){
+				cl+=2;
+			}else{
+				cl++;
+			}
+			if(cl>dataLength){
+				break;
+			}
+		}
+		obj.value=obj.value.substring(0,i);
+
+	}
+	oInput.onchange=function(){
+		limitLength(this);
+	}
+}
+//alert(/[\u4e00-\u9fa5]/.test('号'))
+</script>
+</head>
+    <body>
+    	<h3>字符串长度区分中英文</h3>
+    	<input type="text" datalength='7' />
+    </body>
+</html>

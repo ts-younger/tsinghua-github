@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>获取复选框内容</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+window.onload=function(){
+	var aInput=document.querySelectorAll('input'),
+		aSpan=document.querySelectorAll('span'),
+		oP=document.querySelectorAll('p')[0];
+		var bstr='';
+		coun=function(){
+			var count=0;
+			for(let j=0;j<aInput.length;j++){
+				if(aInput[j].checked){
+					count++;
+				}
+			}
+			return count;
+		}
+	
+	
+
+	for(let i=0;i<aInput.length;i++){
+		var that=this;
+		aInput[i].onclick=function(){
+			var count=coun();
+			if(count>3){
+				this.checked=false;
+				return;
+			}
+			var str='<br/>'+aSpan[i].innerText;
+			if(this.checked){
+				bstr+=str;
+			}else{
+				bstr=bstr.replace(str,'');
+			}
+			oP.innerHTML='选择到的：'+bstr;
+		}
+
+	}
+}
+</script>
+</head>
+    <body>
+    	<h3>获取复选框内容</h3>
+    	<input type="checkbox" value='foot' name='hobby' /><span>足球</span>
+    	<input type="checkbox" value='basket' name='hobby' /><span>篮球</span>
+    	<input type="checkbox" value='tableTennis' name='hobby' /><span>乒乓球</span>
+    	<input type="checkbox" value='volly' name='hobby' /><span>排球</span>
+    	<input type="checkbox" value='ice' name='hobby' /><span>冰球</span>
+    	<p>选择到的：</p>
+    </body>
+</html>

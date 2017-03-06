@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>不允许文本框自动完成</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<style>
+*{margin:0;padding:0;}
+body{width:1000px;margin: 0 auto;}
+input{width:200px;height:20px;}
+.hide{width:200px;display: none;}
+.show{display: block;height:auto;width:200px;position:absolute;left:0;top:0;}
+.disLi{width:200px;height:25px;background:gray;list-style:none;-padding-left:10px;text-align: left;}
+.con{margin-left: 0;}
+</style>
+<script>
+setCss=function(obj,cssOption){
+	if(!obj || obj.nodeType==3 || obj.nodeType==8 || !obj.style){
+		return false;
+	};
+	for(attr in cssOption){
+		obj.style[attr]=cssOption[attr];
+	}
+	
+}
+
+window.onload=function(){
+	var oInput=document.querySelector('#user-js');
+	var arr=[];
+	var oUl=document.querySelectorAll('ul')[0];
+	var aColors = ["red","green","blue","magenta","yellow","ivory","darkmagenta","cornfloewrblue","pink","pulplr","black","gray","orange"];
+	var oDiv=document.querySelectorAll('div')[0];
+//检索匹配(另存数组),创建新节点显示,添加事件
+	//清空数组,检索匹配,结果另存入新数组
+	reg=function(obj){
+		arr=[];
+		for(let i=0;i<aColors.length;i++){
+		 //对输入字符串中非合理字符进行筛选
+			var valueStr=obj.value.replace(/^[^a-zA-Z]*/,'');
+			var re=new RegExp(valueStr);
+			if(re.test(aColors[i])){
+				arr.push(aColors[i]);
+			}
+		}
+		arr.sort();
+		return arr;
+	}
+	
+	
+	creatLi=function(obj){
+		if(arr.length>0){  //创建li装入数组内元素，并显示
+			oUl.innerHTML='';
+			for(let i=0;i<arr.length;i++){	
+				var oLi=document.createElement('li');
+				oLi.setAttribute('class','disLi')
+				oLi.innerHTML=arr[i];
+				oUl.appendChild(oLi);
+				oDiv.setAttribute('class','show');
+				setCss(oDiv,{'left':obj.offsetLeft+'px','top':obj.offsetTop+obj.offsetHeight+'px'});
+			}
+		}	
+	}
+	
+ 	move=function(obj){
+ 		if(document.querySelectorAll('li').length>0){
+			var aLi=document.querySelectorAll('li');
+			for(let i=0;i<aLi.length;i++){
+				aLi[i].onmouseover=function(){
+					setCss(this,{'backgroundColor':'yellow'});
+				}
+				aLi[i].onmouseout=function(){
+					setCss(this,{'backgroundColor':'gray'});
+				}
+				aLi[i].onclick=function(){
+					oDiv.setAttribute('class','show');
+					obj.value=this.innerHTML;
+					oDiv.setAttribute('class','hide');
+				}  //对存在的li添加相应事件
+			}
+		}
+		
+ 	}
+	
+	oInput.onclick=oInput.onkeyup=function(){
+		if(!/[a-zA-Z0-9]/.test(this.value)){
+			return;
+		};//检测输入类型是否合法
+		reg(this);
+		creatLi(this);
+		move(this);
+	}
+	
+	oInput.onblur=function(){
+		setTimeout(function(){
+			oDiv.setAttribute('class','hide');
+		},1000);  //失去焦点后定时关闭显示,延迟1秒防止在进行点击事件时无法找到对象
+	}
+
+}
+</script>
+</head>
+    <body>
+    	<h3>AutoCompleteTextView不允许文本框自动完成</h3>
+    	<input type="text" id="user-js" />
+    	<input type="text" id="user" autocomplete='off' placeholder='不允许自动提示文本框' />
+    	<div class='hide'>
+    		<ul class='con'></ul>
+    	</div>
+    </body>
+</html>

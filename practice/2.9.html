@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>实时显示可以输入多少字符区分中英文</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<style>
+a{color:pink;}
+</style>
+<script>
+window.onload=function(){
+	var oInput=document.querySelector('input');
+	var aa=document.querySelectorAll('a');
+	limitL=function(obj){
+		var i=0;
+		var dataLength=obj.getAttribute('datalength');
+		var wl=0;
+		for(i;i<obj.value.length;i++){
+			if(/[\u4e00-\u9fa5]/.test(obj.value)){
+				wl+=2;
+			}else{
+				wl++;
+			}
+			if(wl>dataLength){
+				break;
+			}
+		}
+		obj.value=obj.value.substring(0,i);
+		aa[0].innerHTML=wl;
+		aa[1].innerHTML=dataLength-wl;
+	}
+	oInput.onkeyup=oInput.onblur=function(){
+		limitL(this);
+	}
+
+}
+</script>
+</head>
+    <body>
+    	<h3>实时显示可以输入多少字符区分中英文</h3>
+    	<input type="text" datalength='7' />
+    	<p>当前输入<a >0</a>个字符 </p>
+    	<p>测试：还能够输入<a>7</a>个字符</p>
+    	
+    </body>
+</html>

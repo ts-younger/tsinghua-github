@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>限制字符串的长度</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+window.onload=function(){
+	var aInput=document.querySelectorAll('input');
+	function maxL(obj){
+		var datalength=obj.getAttribute('datalength');//获取限制长度
+		if(obj.value.length>datalength) obj.value=obj.value.substring(0,datalength)
+			//判断
+	}
+
+	aInput[1].onkeyup=aInput[1].onblur=function(){
+		maxL(this);
+	}
+}
+</script>
+</head>
+    <body>
+    	<h3>限制字符串的长度</h3>
+    	通过“maxlength ”限制<input type="text" maxlength=6 /><br />
+    	通过“JavaScript事件 ”限制<input type="text" datalength='10' />
+    </body>
+</html>

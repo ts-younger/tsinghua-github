@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>限制输入类型</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+window.onload=function(){
+	var aTxt=document.querySelectorAll('input');
+	aTxt[1].onfocus=aTxt[1].onblur=aTxt[1].onkeyup=function(){
+		aTxt[1].value=aTxt[1].value.replace(/\D*/g,'');
+	}
+
+}  //获得、失去焦点,按起键盘时对输入内容进行验证替换
+</script>
+</head>
+    <body>
+    	<form action="">
+    	HTML5数字<input type="number" /><br/>
+    	请输入数字<input type="text"  /><br/>
+    	<!--html5 表单pattern-->
+    	输入数字<input type="text" pattern=[0-9]{3,9} /><br/>
+    	<input type="submit" value='提交' /><br/>
+    	<div class='hide'></div>
+    	</form>
+    </body>
+</html>

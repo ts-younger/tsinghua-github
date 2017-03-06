@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>获取失去焦点改变样式,默认选区</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<style>
+.green{color:green;}
+.red{color:red;}
+</style>
+<script>
+window.onload=function(){
+	var oInput=document.querySelector('#text1')
+	oInput.select();
+	oInput.onfocus=function(){
+		oInput.setAttribute('class','green')
+	};
+	oInput.onblur=function(){
+		oInput.setAttribute('class','red')
+	}
+	setCss=function(obj,cssOption){
+		if(!obj || obj.nodeType==3 || obj.nodeType==8 || !obj.style){
+			return;
+		}
+		for(attr in cssOption){
+			obj.style[attr]=cssOption[attr];
+		}
+	}
+
+
+	//行内样式转化
+	var oText=document.querySelector('#text2');
+
+	var strTojson=function(str){
+		return typeof str  == "object" ? str:JSON.parse(str) ;
+	}//简陋的判断是否是json
+
+	var fclass=oText.getAttribute('data-fClass'),
+		bclass=oText.getAttribute('data-bClass'),
+		fcss=oText.getAttribute('data-fCss'),
+		bcss=oText.getAttribute('data-bCss');
+		//alert(typeof bcss)
+	oText.onfocus=function(){
+		this.setAttribute('class','bclass');
+		setCss(this,strTojson(bcss));
+	}
+	oText.onblur=function(){
+		this.setAttribute('class','fclass');
+		setCss(this,strTojson(fcss));
+	}
+}
+</script>
+</head>
+    <body>
+    	<h3>获取失去焦点改变样式</h3>
+    	<input type="text" id="text1" value='改变样式' class='green' />
+    	<input type="text" value='修改样式' data-fClass='fboder' data-bClass='bboder' data-fCss='{"color":"red"}' data-bCss='{"color":"green"}' id='text2' />
+    </body>
+</html>

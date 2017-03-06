@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>关键词过滤</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+window.onload=function(){
+	var oText=document.querySelector('#text1');
+	var pattern=['帝国','屁股','鬼子','共产党'];
+	re=eval('/'+pattern.join('|')+'/');//将需要过滤的字符串转换为正则;
+	oText.onclick=function(){
+		for(let i=0;i<pattern.length;i++){
+			oText.value=oText.value.replace(re,'**');	
+		}
+	}
+}
+</script>
+</head>
+    <body>
+    	<h3>关键词过滤</h3>
+    	<textarea name="" id="text1" cols="100" rows="20">共产党好，共产党好共产党是国家的好领导，反对派被打倒，帝国主义夹着尾巴逃跑了。李伯伯要当红军，红军不要那伯伯，因为李伯伯的屁股大呀，容易被鬼子发现目标，李伯伯找到了团长。团长也是个伯伯，因为伯伯同意伯伯呀，李伯伯就光荣参军了。李伯伯去执行任务，来到了半山腰，因为李伯伯的屁股大呀，被鬼子发现了目标。李伯伯拍钩子就跑，鬼子上来就是两刺刀，为了革命为了党，李伯伯就光荣牺牲了</textarea>
+    	
+    </body>
+</html>

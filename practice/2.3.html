@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>禁止输入</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+window.onload=function(){
+	var aText=document.querySelectorAll('input');
+	//第一种禁止输入方法阻止input聚焦
+	aText[0].onfocus=function(){
+		aText[0].blur();
+	}
+	//禁止输入第二种方法:keydown(keyup)与blur结合,再辅以onpaste
+	aText[2].onkeydown=function(){
+		var ev=ev||window.event;
+		aText[2].blur();
+		aText[2].value='';
+		aText[2].setAttribute('onpaste','return false')
+	}
+	
+}
+</script>
+</head>
+    <body>
+    	<h3>禁止输入</h3>
+    	禁止输入框一<input type="text" id='text1'  />js控制<br/>
+    	禁止输入框二<input type="text" id='text2'  disabled/>disabled<br/>
+    	正常输入框三<input type="text" id='text3'  /><br/>
+    	禁止输入框四<input type="text" id='text4'  disabled='disabled'/>disabled<br/>
+    	正常输入框五<input type="text" id='text6'  /><br/>
+    	禁止输入框六<input type="text" id='text5'  readonly />readonly<br/>
+    	正常输入框七<input type="text" id='text7'  />
+    	
+    </body>
+</html>
