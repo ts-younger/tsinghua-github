@@ -3,28 +3,6 @@
 <head>
 <title>根据指定内容选中复选框</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script>
-window.onload=function(){
-	var oText=document.querySelector('#text1'),
-		aInput=document.querySelectorAll('input');
-	var arr=['足球','篮球','乒乓球','排球'];
-
-	oText.onkeyup=function(){
-		for(i=0;i<aInput.length;i++){
-			aInput[i].setAttribute('data-k',arr[i]);
-			if(oText.value.search(arr[i])!=-1){
-				aInput[i].checked=true;
-			}else{
-				aInput[i].checked=false;
-			}
-		}
-	}
-	
-
-
-
-}
-</script>
 </head>
     <body>
     	<h3>根据指定内容选中复选框</h3>
@@ -34,5 +12,23 @@ window.onload=function(){
     	<input type="checkbox" name='hobby' value='basket' />篮球<br />
     	<input type="checkbox" name='hobby' value='pinpang' />乒乓球<br />
     	<input type="checkbox" name='hobby' value='volly' />排球<br />
+	<script>
+		window.onload=function(){
+			var oText=document.querySelector('#text1'),
+				aInput=document.querySelectorAll('input');
+			var arr=['足球','篮球','乒乓球','排球'];
+
+			oText.onkeyup=function(){
+				for(i=0;i<aInput.length;i++){
+					aInput[i].setAttribute('data-k',arr[i]);
+					if(oText.value.search(arr[i])!=-1){
+						aInput[i].checked=true;
+					}else{
+						aInput[i].checked=false;
+					}
+				}
+			}
+		}
+	</script>
     </body>
 </html>
