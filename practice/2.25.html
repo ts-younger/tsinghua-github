@@ -3,33 +3,32 @@
 <head>
 <title>判断下拉框是否选中</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="布尔教育 http://www.itbool.com" />
-<script>
-window.onload=function(){
-	var oSelect=document.querySelector('#hb');
-	var aOption=document.querySelectorAll('option');
-
-	oSelect.onchange=function(){
-		if(oSelect.value==''){
-			alert('您没有选择');
-		}else{
-			alert(oSelect.value);
-		}
-	}
-	
-	
-}
-</script>
 </head>
-    <body>
-    	<h3>判断下拉框是否选中</h3>
-    	<select name="hobby" id="hb">
-    		<option value="">请选择</option>
-    		<option value="basket">篮球</option>
-    		<option value="foot">足球</option>
-    		<option value="ppang">乒乓</option>
-    		<option value="volly">排球</option>
-    		<option value="ice">冰球</option>
-    	</select>
-    </body>
+<body>
+	<h3>判断下拉框是否选中</h3>
+	<select name="hobby" id="hb">
+		<option value="">请选择</option>
+		<option value="basket">篮球</option>
+		<option value="foot">足球</option>
+		<option value="ppang">乒乓</option>
+		<option value="volly">排球</option>
+		<option value="ice">冰球</option>
+	</select>
+	<script>
+		window.onload=function(){
+			var oSelect=document.querySelector('#hb');
+			var aOption=document.querySelectorAll('option');
+
+			oSelect.onchange=function(){
+				if(oSelect.value==''){
+					alert('您没有选择');
+				}else{
+					alert(oSelect.value);
+				}
+			}
+
+
+		}
+	</script>
+</body>
 </html>
