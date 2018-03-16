@@ -1,0 +1,143 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html,body {
+	width: 600px;
+	height:500px;
+	margin: 0 auto;
+}
+body {
+	background: #eee
+}
+header {
+	height: 40px;
+	background: #eee;
+	text-align: center;
+}
+/* main content */
+main {
+	height: 400px;
+	overflow: hidden;
+}
+.main {
+	float: left;
+	position: relative;
+	width: 400px;
+	height: 400px;
+	background: #8e8e8e;
+	border: 2px solid red
+}
+.control {
+	float: right;
+	width: 150px;
+	height: 100%;
+	/*background: green*/
+}
+.score {
+	width:100%;
+	height: 60px;
+}
+h3 {
+	text-align: center
+}
+.opa,.dead {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	width: 100%;
+	height: 700px;
+	opacity: .5;
+	background: #000;
+	/*display: none*/
+}
+.wrapper {
+	position: absolute;
+	text-align: center;
+	line-height: 40px;
+	left: 50%;
+	top: 50%;
+	width: 400px;
+	height: 300px;
+	margin-left: -100px;
+	margin-top: -20px;
+}
+.failed {
+	width: 300px;
+	height: 200px;
+	position: absolute;
+	background: #f4f4f4;
+	z-index:999;
+	top: 50%;
+	border: 2px solid #f40;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -150px;
+	text-align: center;
+} 
+.grad {
+	width: 100%;
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+	color: red;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.btn,.goon,.restart{
+	width: 200px;
+	height: 40px;
+	border-radius: 10px;
+	cursor: default;
+	text-align: center;
+	background: #e4e4e4;
+}
+.restart {
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.btn {
+}
+.goon {
+	display: none
+}
+i {
+	width: 55px;
+	height: 55px;
+	display: block;
+}
+.icon {
+	background-image: url(btn.png);
+}
+.play {
+	background-position: 0 0
+}
+.pause {
+	background-position: 0 -60px;
+	/*background-image: url(btn.png);*/
+}
+.snake-body {
+	background: green
+}	
+.food {
+	position: absolute;
+	background: yellow
+}
+.snake-head {
+	background: red
+}
+.main div {
+	width: 20px;
+	height: 20px;
+}
+.close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+	color: #f40;
+	cursor: default
+}
