@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>扫雷游戏开发</title>
+	<link rel="stylesheet" href="mine.css">
+</head>
+<body>
+	<div id="app">
+		<div id="control">
+			<div class="mine-score">
+				<span></span>
+			</div>
+			<div class="mine-btn">
+				<button id='mine-start' class="start"></button>
+			</div>
+			<div class="mine-time">
+				
+			</div>
+		</div>
+		<div class="mine-cont">
+
+			<canvas id="mine" width="400" height="400"></canvas>		
+		</div>
+	</div>
+	<script src="./mine.js"></script>
+	<script>
+		var oDiv = document.getElementById('app');
+		var can = document.getElementById('mine');
+		var mine = new Mine(can, 99, 20, 20);
+		can.oncontextmenu = function (){
+			return false
+		}
+		mine.init()
+	</script>
+</body>
+</html>
