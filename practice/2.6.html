@@ -3,18 +3,18 @@
 <head>
 <title>仅能中文输入</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="布尔教育 http://www.itbool.com" />
-<script>
-window.onload=function(){
-	var oInput=document.querySelector('input');
-	oInput.onblur=oInput.onkeyup=function(){
-		oInput.value=oInput.value.replace(/[^\u4e00-\u9fa5]/g,'');
-	}
-}
-</script>
 </head>
     <body>
     	<h3>中文录入</h3>
     	<input type="text"  /><br />
+    
+	<script>
+	window.onload=function(){
+		var oInput=document.querySelector('input');
+		oInput.onblur=oInput.onkeyup=function(){
+			oInput.value=oInput.value.replace(/[^\u4e00-\u9fa5]/g,'');
+		}
+	}
+	</script>
     </body>
 </html>
